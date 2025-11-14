@@ -5,8 +5,7 @@
   <title>Un verano de despedida</title>
 
   <style>
-    /* ======= D 配色：海邊傍晚 Sunset by the Coast ======= */
-    /* 主調：月光奶油背景 + 日落橘標題 + 深海藍文字 */
+/* ======= Sunset + Ocean Blue + Sicilian Gold 調色 ======= */
 
 body {
   margin: 0;
@@ -104,6 +103,90 @@ footer {
   color: #465A7C; /* 深海藍灰 */
   text-align: center;
 }
+
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <!-- 頁首：標題＋一句短句 -->
+    <header class="intro">
+      <h1>Algunas bellas imágenes poéticas</h1>
+      <p class="intro-sub">Un verano de despedida, guardado en cuadros pequeños.</p>
+    </header>
+
+    <!-- 相簿格子區：照片＋簡短說明 -->
+    <section class="gallery">
+      <h2>Fragmentos del verano</h2>
+      <p>像一個小相簿，每一張圖都是那個夏天裡模糊卻黏人的片段。</p>
+
+      <div class="gallery-grid">
+        <!-- 照片 1 -->
+        <div class="photo-card">
+          <!-- 把 1023705.jpg 換成你自己的檔名（images 資料夾裡要有這張） -->
+          <img src="images/1023705.jpg" alt="Recuerdo 1">
+          <div class="photo-caption">La luz de la tarde pegada en la ventana.</div>
+        </div>
+
+        <!-- 照片 2 -->
+        <div class="photo-card">
+          <img src="images/photo2.jpg" alt="Recuerdo 2">
+          <div class="photo-caption">Un café que ya se enfrió mientras hablábamos.</div>
+        </div>
+
+        <!-- 照片 3 -->
+        <div class="photo-card">
+          <img src="images/photo3.jpg" alt="Recuerdo 3">
+          <div class="photo-caption">La calle vacía después de la lluvia.</div>
+        </div>
+
+        <!-- 你可以視需要多加幾張 -->
+        <div class="photo-card">
+          <img src="images/photo4.jpg" alt="Recuerdo 4">
+          <div class="photo-caption">Las sombras largas en la estación.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo5.jpg" alt="Recuerdo 5">
+          <div class="photo-caption">Un rincón que sólo tú conoces.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo6.jpg" alt="Recuerdo 6">
+          <div class="photo-caption">El cielo que no supimos leer.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 文字分段：像文章 / 日記 -->
+    <section class="essay">
+      <h2>Notas sueltas</h2>
+
+      <p>
+        Hay veranos que se recuerdan por el calor, por los viajes, por las personas nuevas.
+        Y hay veranos que se quedan por lo que no se dijo, por las despedidas que parecían
+        sólo pausas, pero no lo eran.
+      </p>
+
+      <p>
+        A veces sólo quedan imágenes: una mesa desordenada, una estación casi vacía,
+        el reflejo de dos personas en un vidrio que ya no existe. La memoria no guarda
+        la cronología completa, pero se aferra a detalles pequeños，像是杯沿乾掉的咖啡痕跡，
+        或是路燈下彼此沒有說出口的那一句話。
+      </p>
+
+      <p>
+        Tal vez我們試圖留下的，不是那些時刻本身，而是「我們曾經在那裡」這件事——
+        就算世界早就換了新的一套場景，照片還是固執地停在那一格。
+      </p>
+
+      <small>Es sólo un verano, pero se queda más tiempo de lo debido.</small>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Un verano de despedida
+    </footer>
+  </main>
 
   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 

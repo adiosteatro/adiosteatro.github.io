@@ -5,12 +5,14 @@
   <title>Un verano de despedida</title>
 
   <style>
-    /* ======= 全站基本樣式：B 配色（奶油、咖啡、杏橘） ======= */
+    /* ======= D 配色：海邊傍晚 Sunset by the Coast ======= */
+    /* 主調：月光奶油背景 + 日落橘標題 + 深海藍文字 */
+
     body {
       margin: 0;
       padding: 0;
-      background-color: #FF9E5E; /* 杏橘色白背景 */
-      color: #3C2F2F;            /* 深咖啡文字 */
+      background-color: #FFF4DF; /* Moon Cream 月光奶油 */
+      color: #2E3A5C;            /* 深海藍灰文字 */
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       line-height: 1.8;
     }
@@ -22,7 +24,7 @@
     }
 
     h1, h2 {
-      color: #FFF7EB;    /* 奶油白標題色 */
+      color: #F47A5E;    /* 日落橘標題 */
       margin-bottom: 8px;
     }
 
@@ -43,12 +45,12 @@
     /* ======= 頁首（標題＋短句） ======= */
     .intro {
       margin-bottom: 24px;
-      border-bottom: 1px solid rgba(60, 47, 47, 0.2);
+      border-bottom: 1px solid rgba(70, 90, 124, 0.25); /* 深海藍灰 */
       padding-bottom: 16px;
     }
 
     .intro-sub {
-      color: #8A6A5A; /* 淺咖啡，當作副標 */
+      color: #465A7C; /* 比正文再深一點的海藍，當作副標 */
       font-size: 14px;
     }
 
@@ -78,7 +80,7 @@
     }
 
     .photo-card {
-      background-color: #FFFFFF; /* 白色卡片 */
+      background-color: #FFFFFF; /* 白色卡片，像相簿頁 */
       border-radius: 12px;
       padding: 10px;
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
@@ -94,17 +96,17 @@
     }
 
     .photo-caption {
-      color: #7A5A4A;
+      color: #DDA09C;   /* Mist Pink 薄霧粉，溫柔的註解色 */
       font-size: 13px;
     }
 
     /* ======= 文字段落區（像日記/散文） ======= */
     .essay {
       margin-top: 32px;
-      background-color: #FFFDF8;
+      background-color: #FFEFD7;             /* 比背景略深一點的奶油橘 */
       border-radius: 12px;
       padding: 16px 14px;
-      border: 1px solid rgba(0,0,0,0.04);
+      border: 1px solid rgba(232, 186, 150, 0.35); /* 帶日落感的淡邊框 */
     }
 
     .essay p {
@@ -114,7 +116,7 @@
     .essay small {
       display: block;
       margin-top: 8px;
-      color: #AA8575;
+      color: #9A6C64;   /* 偏暖的咖粉，用在結尾小字 */
       font-size: 12px;
     }
 
@@ -122,7 +124,7 @@
     footer {
       margin-top: 32px;
       font-size: 12px;
-      color: #9A7C6A;
+      color: #465A7C;   /* 深海藍灰 */
       text-align: center;
     }
   </style>
@@ -144,7 +146,7 @@
       <div class="gallery-grid">
         <!-- 照片 1 -->
         <div class="photo-card">
-          <!-- 把 photo1.jpg 換成你自己的檔名 -->
+          <!-- 把 1023705.jpg 換成你自己的檔名（images 資料夾裡要有這張） -->
           <img src="images/1023705.jpg" alt="Recuerdo 1">
           <div class="photo-caption">La luz de la tarde pegada en la ventana.</div>
         </div>
@@ -208,10 +210,14 @@
       © <span id="year"></span> Un verano de despedida
     </footer>
   </main>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
   <script>
     // 自動顯示年份
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
+

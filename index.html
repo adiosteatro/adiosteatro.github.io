@@ -5,45 +5,213 @@
   <title>Un verano de despedida</title>
 
   <style>
-    /* ======= B 配色：溫柔奶油系 ======= */
-
+    /* ======= 全站基本樣式：B 配色（奶油、咖啡、杏橘） ======= */
     body {
       margin: 0;
-      padding: 20px;
-      background-color: #FFF7EB; /* 奶油米白 */
-      color: #3C2F2F;            /* 深咖啡字 */
+      padding: 0;
+      background-color: #FFF7EB; /* 奶油米白背景 */
+      color: #3C2F2F;            /* 深咖啡文字 */
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    h1, h2 {
+      color: #FF9E5E;    /* 杏橘標題色 */
+      margin-bottom: 8px;
     }
 
     h1 {
-      color: #FF9E5E;            /* 杏橘色標題 */
-      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
     }
 
     p {
       margin-top: 0;
-      font-size: 16px;
+      font-size: 15px;
     }
 
-    /* 圖片造型 */
-    img {
-      max-width: 400px;
-      width: 100%;
+    /* ======= 頁首（標題＋短句） ======= */
+    .intro {
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(60, 47, 47, 0.2);
+      padding-bottom: 16px;
+    }
+
+    .intro-sub {
+      color: #8A6A5A; /* 淺咖啡，當作副標 */
+      font-size: 14px;
+    }
+
+    /* ======= 相簿格子 ======= */
+    .gallery {
+      margin-top: 16px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    /* 螢幕比較寬時變成 2 或 3 欄 */
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .photo-card {
+      background-color: #FFFFFF; /* 白色卡片 */
       border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0,0,0,0.03);
+      font-size: 13px;
+    }
+
+    .photo-card img {
+      width: 100%;
       display: block;
-      margin-top: 20px;
-      border: 4px solid #FFFFFF;       /* 白色邊框 */
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.08); /* 柔和陰影 */
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+
+    .photo-caption {
+      color: #7A5A4A;
+      font-size: 13px;
+    }
+
+    /* ======= 文字段落區（像日記/散文） ======= */
+    .essay {
+      margin-top: 32px;
+      background-color: #FFFDF8;
+      border-radius: 12px;
+      padding: 16px 14px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .essay p {
+      margin-bottom: 12px;
+    }
+
+    .essay small {
+      display: block;
+      margin-top: 8px;
+      color: #AA8575;
+      font-size: 12px;
+    }
+
+    /* ======= 頁尾 ======= */
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: #9A7C6A;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
-  <h1>Algunas imágenes hermosas</h1>
-  <p>recuerdos vagos</p>
+  <main class="page">
+    <!-- 頁首：標題＋一句短句 -->
+    <header class="intro">
+      <h1>Algunas imágenes hermosas</h1>
+      <p class="intro-sub">Un verano de despedida, guardado en cuadros pequeños.</p>
+    </header>
 
-  <!-- 這裡放你的圖片，把 photo.jpg 換成你的檔名 -->
-  <img src="images/1023705.jpg" alt="Recuerdos del verano">
+    <!-- 相簿格子區：照片＋簡短說明 -->
+    <section class="gallery">
+      <h2>Fragmentos del verano</h2>
+      <p>像一個小相簿，每一張圖都是那個夏天裡模糊卻黏人的片段。</p>
+
+      <div class="gallery-grid">
+        <!-- 照片 1 -->
+        <div class="photo-card">
+          <!-- 把 photo1.jpg 換成你自己的檔名 -->
+          <img src="images/photo1.jpg" alt="Recuerdo 1">
+          <div class="photo-caption">La luz de la tarde pegada en la ventana.</div>
+        </div>
+
+        <!-- 照片 2 -->
+        <div class="photo-card">
+          <img src="images/photo2.jpg" alt="Recuerdo 2">
+          <div class="photo-caption">Un café que ya se enfrió mientras hablábamos.</div>
+        </div>
+
+        <!-- 照片 3 -->
+        <div class="photo-card">
+          <img src="images/photo3.jpg" alt="Recuerdo 3">
+          <div class="photo-caption">La calle vacía después de la lluvia.</div>
+        </div>
+
+        <!-- 你可以視需要多加幾張 -->
+        <div class="photo-card">
+          <img src="images/1023705.jpg" alt="Recuerdo 4">
+          <div class="photo-caption">Las sombras largas en la estación.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo5.jpg" alt="Recuerdo 5">
+          <div class="photo-caption">Un rincón que sólo tú conoces.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="images/photo6.jpg" alt="Recuerdo 6">
+          <div class="photo-caption">El cielo que no supimos leer.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 文字分段：像文章 / 日記 -->
+    <section class="essay">
+      <h2>Notas sueltas</h2>
+
+      <p>
+        Hay veranos que se recuerdan por el calor, por los viajes, por las personas nuevas.
+        Y hay veranos que se quedan por lo que no se dijo, por las despedidas que parecían
+        sólo pausas, pero no lo eran.
+      </p>
+
+      <p>
+        A veces sólo quedan imágenes: una mesa desordenada, una estación casi vacía,
+        el reflejo de dos personas en un vidrio que ya no existe. La memoria no guarda
+        la cronología completa, pero se aferra a detalles pequeños，像是杯沿乾掉的咖啡痕跡，
+        或是路燈下彼此沒有說出口的那一句話。
+      </p>
+
+      <p>
+        Tal vez我們試圖留下的，不是那些時刻本身，而是「我們曾經在那裡」這件事——
+        就算世界早就換了新的一套場景，照片還是固執地停在那一格。
+      </p>
+
+      <small>Es sólo un verano, pero se queda más tiempo de lo debido.</small>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Un verano de despedida
+    </footer>
+  </main>
+
+  <script>
+    // 自動顯示年份
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

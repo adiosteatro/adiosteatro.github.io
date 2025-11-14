@@ -1,215 +1,99 @@
-<!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <title>Un verano de despedida</title>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF4DF; /* 月光奶油背景 */
+  color: #2E3A5C;            /* 深海藍灰文字 */
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.8;
+}
 
-  <style>
-    /* ======= D 配色：海邊傍晚 Sunset by the Coast ======= */
-    /* 主調：月光奶油背景 + 日落橘標題 + 深海藍文字 */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #FFF4DF; /* Moon Cream 月光奶油 */
-      color: #2E3A5C;            /* 深海藍灰文字 */
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      line-height: 1.8;
-    }
+/* 主標題、段落標題 */
+h1, h2 {
+  color: #F47A5E; /* 日落橘 */
+  margin-bottom: 8px;
+}
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 24px 16px 48px;
-    }
+/* 副標題 */
+.intro-sub {
+  color: #465A7C; /* 深海藍灰 */
+  font-size: 14px;
+}
 
-    h1, h2 {
-      color: #F47A5E;    /* 日落橘標題 */
-      margin-bottom: 8px;
-    }
+/* 分段底線帶海藍色調 */
+.intro {
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(58,124,165,0.35); /* 海藍 */
+  padding-bottom: 16px;
+}
 
-    h1 {
-      font-size: 28px;
-    }
+/* ======= 相簿卡片 ======= */
 
-    h2 {
-      font-size: 20px;
-      margin-top: 32px;
-    }
+.photo-card {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    p {
-      margin-top: 0;
-      font-size: 15px;
-    }
+/* 滑過卡片時加海藍色微光 */
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(58,124,165,0.25); /* 海藍光 */
+}
 
-    /* ======= 頁首（標題＋短句） ======= */
-    .intro {
-      margin-bottom: 24px;
-      border-bottom: 1px solid rgba(70, 90, 124, 0.25); /* 深海藍灰 */
-      padding-bottom: 16px;
-    }
+.photo-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
 
-    .intro-sub {
-      color: #465A7C; /* 比正文再深一點的海藍，當作副標 */
-      font-size: 14px;
-    }
+.photo-caption {
+  color: #DDA09C; /* 薄霧粉 */
+  font-size: 13px;
+}
 
-    /* ======= 相簿格子 ======= */
-    .gallery {
-      margin-top: 16px;
-    }
+/* ======= 漸層金色 Highlight 用於連結、裝飾 ======= */
+a {
+  color: #D9A441; /* 西西里陽光金 */
+  text-decoration: none;
+  font-weight: 500;
+}
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 12px;
-    }
+a:hover {
+  color: #E0BB74; /* 焦糖金 */
+}
 
-    /* 螢幕比較寬時變成 2 或 3 欄 */
-    @media (min-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+/* ======= 散文區（柔暖紙色） ======= */
+.essay {
+  margin-top: 32px;
+  background-color: #FFEFD7; /* 奶油橘 */
+  border-radius: 12px;
+  padding: 16px 14px;
+  border: 1px solid #F3CC7A; /* 香草焦糖金 */
+}
 
-    @media (min-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
+.essay small {
+  display: block;
+  margin-top: 8px;
+  color: #9A6C64;   
+  font-size: 12px;
+}
 
-    .photo-card {
-      background-color: #FFFFFF; /* 白色卡片，像相簿頁 */
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(0,0,0,0.03);
-      font-size: 13px;
-    }
-
-    .photo-card img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
-      margin-bottom: 6px;
-    }
-
-    .photo-caption {
-      color: #DDA09C;   /* Mist Pink 薄霧粉，溫柔的註解色 */
-      font-size: 13px;
-    }
-
-    /* ======= 文字段落區（像日記/散文） ======= */
-    .essay {
-      margin-top: 32px;
-      background-color: #FFEFD7;             /* 比背景略深一點的奶油橘 */
-      border-radius: 12px;
-      padding: 16px 14px;
-      border: 1px solid rgba(232, 186, 150, 0.35); /* 帶日落感的淡邊框 */
-    }
-
-    .essay p {
-      margin-bottom: 12px;
-    }
-
-    .essay small {
-      display: block;
-      margin-top: 8px;
-      color: #9A6C64;   /* 偏暖的咖粉，用在結尾小字 */
-      font-size: 12px;
-    }
-
-    /* ======= 頁尾 ======= */
-    footer {
-      margin-top: 32px;
-      font-size: 12px;
-      color: #465A7C;   /* 深海藍灰 */
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-  <main class="page">
-    <!-- 頁首：標題＋一句短句 -->
-    <header class="intro">
-      <h1>Algunas bellas imágenes poéticas</h1>
-      <p class="intro-sub">Un verano de despedida, guardado en cuadros pequeños.</p>
-    </header>
-
-    <!-- 相簿格子區：照片＋簡短說明 -->
-    <section class="gallery">
-      <h2>Fragmentos del verano</h2>
-      <p>像一個小相簿，每一張圖都是那個夏天裡模糊卻黏人的片段。</p>
-
-      <div class="gallery-grid">
-        <!-- 照片 1 -->
-        <div class="photo-card">
-          <!-- 把 1023705.jpg 換成你自己的檔名（images 資料夾裡要有這張） -->
-          <img src="images/1023705.jpg" alt="Recuerdo 1">
-          <div class="photo-caption">La luz de la tarde pegada en la ventana.</div>
-        </div>
-
-        <!-- 照片 2 -->
-        <div class="photo-card">
-          <img src="images/photo2.jpg" alt="Recuerdo 2">
-          <div class="photo-caption">Un café que ya se enfrió mientras hablábamos.</div>
-        </div>
-
-        <!-- 照片 3 -->
-        <div class="photo-card">
-          <img src="images/photo3.jpg" alt="Recuerdo 3">
-          <div class="photo-caption">La calle vacía después de la lluvia.</div>
-        </div>
-
-        <!-- 你可以視需要多加幾張 -->
-        <div class="photo-card">
-          <img src="images/photo4.jpg" alt="Recuerdo 4">
-          <div class="photo-caption">Las sombras largas en la estación.</div>
-        </div>
-
-        <div class="photo-card">
-          <img src="images/photo5.jpg" alt="Recuerdo 5">
-          <div class="photo-caption">Un rincón que sólo tú conoces.</div>
-        </div>
-
-        <div class="photo-card">
-          <img src="images/photo6.jpg" alt="Recuerdo 6">
-          <div class="photo-caption">El cielo que no supimos leer.</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 文字分段：像文章 / 日記 -->
-    <section class="essay">
-      <h2>Notas sueltas</h2>
-
-      <p>
-        Hay veranos que se recuerdan por el calor, por los viajes, por las personas nuevas.
-        Y hay veranos que se quedan por lo que no se dijo, por las despedidas que parecían
-        sólo pausas, pero no lo eran.
-      </p>
-
-      <p>
-        A veces sólo quedan imágenes: una mesa desordenada, una estación casi vacía,
-        el reflejo de dos personas en un vidrio que ya no existe. La memoria no guarda
-        la cronología completa, pero se aferra a detalles pequeños，像是杯沿乾掉的咖啡痕跡，
-        或是路燈下彼此沒有說出口的那一句話。
-      </p>
-
-      <p>
-        Tal vez我們試圖留下的，不是那些時刻本身，而是「我們曾經在那裡」這件事——
-        就算世界早就換了新的一套場景，照片還是固執地停在那一格。
-      </p>
-
-      <small>Es sólo un verano, pero se queda más tiempo de lo debido.</small>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Un verano de despedida
-    </footer>
-  </main>
+/* ======= Footer ======= */
+footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #465A7C; /* 深海藍灰 */
+  text-align: center;
+}
 
   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 

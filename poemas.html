@@ -3,99 +3,199 @@
 <head>
   <meta charset="utf-8">
   <title>Poemas – Un verano de despedida</title>
-  <!doctype html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8">
-  <title>Un verano de despedida</title>
 
   <style>
-/* ======= Sunset + Ocean Blue + Sicilian Gold 調色 ======= */
+    /* ===== 全站基礎（建議跟 index.html 保持一致） ===== */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFF4DF; /* 月光奶油背景 */
+      color: #2E3A5C;            /* 深海藍灰文字 */
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #FFF4DF; /* 月光奶油背景 */
-  color: #5EA8D8;            /* 深海藍灰文字 */
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.8;
-}
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
 
-.page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 24px 16px 48px;
-}
+    h1, h2 {
+      color: #F47A5E; /* 日落橘標題 */
+      margin-bottom: 8px;
+    }
 
-/* 主標題、段落標題 */
-h1, h2 {
-  color: #F47A5E; /* 日落橘 */
-  margin-bottom: 8px;
-}
+    a {
+      color: #D9A441; /* 西西里陽光金 */
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-/* 副標題 */
-.intro-sub {
-  color: #465A7C; /* 深海藍灰 */
-  font-size: 14px;
-}
+    a:hover {
+      color: #E0BB74; /* 焦糖金 */
+    }
 
-/* 分段底線帶海藍色調 */
-.intro {
-  margin-bottom: 24px;
-  border-bottom: 1px solid rgba(58,124,165,0.35); /* 海藍 */
-  padding-bottom: 16px;
-}
+    /* ===== 玻璃霧面側欄（與 index.html 同一套） ===== */
+    .glass-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      padding: 28px 18px;
+      background: rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 1000;
+    }
 
-/* ======= Footer ======= */
-footer {
-  margin-top: 32px;
-  font-size: 12px;
-  color: #465A7C; /* 深海藍灰 */
-  text-align: center;
-}
+    .glass-sidebar a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2E3A5C;
+      padding: 6px 4px;
+      border-radius: 8px;
+      transition: 0.25s ease;
+    }
+
+    .glass-sidebar a:hover {
+      background-color: rgba(243, 204, 122, 0.45);
+      color: #2E3A5C;
+      backdrop-filter: blur(24px);
+    }
+
+    .page {
+      margin-left: 210px; /* 讓主內容往右讓出側欄空間 */
+    }
+
+    @media (max-width: 650px) {
+      .glass-sidebar {
+        width: 130px;
+        padding: 20px 14px;
+      }
+      .glass-sidebar a {
+        font-size: 14px;
+      }
+      .page {
+        margin-left: 150px;
+      }
+    }
+
+    /* ===== 日記頁樣式 ===== */
+
+    .entry-header {
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(58,124,165,0.25); /* 海藍細線 */
+      padding-bottom: 12px;
+    }
+
+    .entry-meta {
+      font-size: 13px;
+      color: #465A7C;
+    }
+
+    .entry-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background-color: #F3CC7A; /* 香草焦糖金 */
+      color: #2E3A5C;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+
+    .entry-body {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 720px) {
+      .entry-body {
+        grid-template-columns: 1.1fr 1.2fr; /* 左右兩欄：圖＋文 */
+      }
+    }
+
+    .entry-photo-main img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .entry-photo-sub {
+      margin-top: 12px;
+    }
+
+    .entry-photo-sub img {
+      width: 100%;
+      border-radius: 10px;
+      opacity: 0.9;
+    }
+
+    .entry-text p {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    .entry-text em {
+      font-style: normal;
+      color: #DDA09C; /* 薄霧粉 */
+    }
+
+    .entry-footer-note {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #9A6C64;
+    }
 
   </style>
 </head>
-    <!-- 文字分段：像文章 / 日記 -->
-    <section class="essay">
-      <h2>Notas sueltas</h2>
 
-      <p>
-        Hay veranos que se recuerdan por el calor, por los viajes, por las personas nuevas.
-        Y hay veranos que se quedan por lo que no se dijo, por las despedidas que parecían
-        sólo pausas, pero no lo eran.
-      </p>
-
-      <p>
-        A veces sólo quedan imágenes: una mesa desordenada, una estación casi vacía,
-        el reflejo de dos personas en un vidrio que ya no existe. La memoria no guarda
-        la cronología completa, pero se aferra a detalles pequeños，像是杯沿乾掉的咖啡痕跡，
-        或是路燈下彼此沒有說出口的那一句話。
-      </p>
-
-      <p>
-        Tal vez我們試圖留下的，不是那些時刻本身，而是「我們曾經在那裡」這件事——
-        就算世界早就換了新的一套場景，照片還是固執地停在那一格。
-      </p>
-
-      <small>Es sólo un verano, pero se queda más tiempo de lo debido.</small>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Un verano de despedida
-    </footer>
-  </main>
-
-  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-  <script>
-    // 自動顯示年份
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 <body>
-  <h1>Poemas</h1>
-  <p>這裡可以放你的詩、句子、或者之後要整理的文字。</p>
 
-  <p><a href="index.html">← 回首頁</a></p>
-</body>
-</html>
+  <!-- 玻璃霧面側欄：記得讓連結對應到你的實際頁面 -->
+  <nav class="glass-sidebar">
+    <a href="index.html">Inicio</a>
+    <a href="poemas.html">Poemas</a>
+    <a href="musica.html">Música</a>
+    <a href="galeria.html">Galería</a>
+    <a href="about.html">Sobre mí</a>
+  </nav>
+
+  <main class="page">
+    <!-- 頁首：標題 + 日期 + tag -->
+    <header class="entry-header">
+      <h1>Un verano que no sabe irse</h1>
+      <div class="entry-meta">
+        <span class="entry-tag">Diario</span>
+        <span>2025.07.26 · en algún lugar entre la ventana y la estación</span>
+      </div>
+    </header>
+
+    <!-- 主體：左邊圖片，右邊文字（手機時會變成上下排） -->
+    <section class="entry-body">
+      <!-- 左側：主照片 + 副照片（可選） -->
+      <div>
+        <div class="entry-photo-main">
+          <!-- 把檔名換成你自己的，例如 1023705.jpg -->
+          <img src="1023705.jpg" alt="Luz de la tarde en la ventana">
+        </div>
+
+        <!-- 可選：第二張小照片，不需要可以整段刪掉 -->
+        <div class="entry-photo-sub">
+          <img src="photo2.jpg" alt="Detalle del verano">
+        </div>
+      </div>
+
+      <!-- 右側：散文文字 -->
+      <article class="entry-text">
+        <p>
+          那個夏天總是黃昏特別長。窗外的光線像忘了時間，一層一層黏在玻璃上，
+          把房間裡所有尚未說完的話

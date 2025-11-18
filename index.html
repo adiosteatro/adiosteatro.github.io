@@ -137,60 +137,70 @@
     text-align: center;
   }
 
-  /* ======= 玻璃霧面側欄 ======= */
+/* ======= 玻璃霧面右側欄 ======= */
+
+.glass-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;                    /* 右側 */
+  left: auto;
+  width: 180px;
+  height: 100%;
+  padding: 28px 18px;
+
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+
+  border-left: 1px solid rgba(255, 255, 255, 0.25);  /* ← 改成左邊邊框 */
+  border-right: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 1000;
+}
+
+/* 側欄連結 */
+.glass-sidebar a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2E3A5C;
+  padding: 6px 4px;
+  border-radius: 8px;
+  transition: 0.25s ease;
+}
+
+.glass-sidebar a:hover {
+  background-color: rgba(243, 204, 122, 0.45);
+  color: #2E3A5C;
+  backdrop-filter: blur(24px);
+}
+
+/* 主內容往左移，讓出右側欄空間 */
+.page {
+  margin-right: 210px; /* 改成右側空出 */
+  margin-left: auto;
+}
+
+/* 手機版位置縮窄 */
+@media (max-width: 650px) {
 
   .glass-sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 180px;
-    height: 100%;
-    padding: 28px 18px;
-
-    background: rgba(255, 255, 255, 0.28);         /* 半透明 */
-    backdrop-filter: blur(16px) saturate(180%);    /* 霧面玻璃 */
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-
-    border-right: 1px solid rgba(255, 255, 255, 0.25);
-
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    z-index: 1000;
+    width: 130px;
+    padding: 20px 14px;
   }
 
   .glass-sidebar a {
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    color: #2E3A5C;      /* 深海藍 */
-    padding: 6px 4px;
-    border-radius: 8px;
-    transition: 0.25s ease;
+    font-size: 14px;
   }
 
-  .glass-sidebar a:hover {
-    background-color: rgba(243, 204, 122, 0.45); /* 香草焦糖金 */
-    color: #2E3A5C;
-    backdrop-filter: blur(24px);
+  .page {
+    margin-right: 150px; /* 手機版也用右邊 */
   }
+}
 
-  /* 手機模式：側欄縮小，內容左移少一點 */
-  @media (max-width: 650px) {
-
-    .glass-sidebar {
-      width: 130px;
-      padding: 20px 14px;
-    }
-
-    .glass-sidebar a {
-      font-size: 14px;
-    }
-
-    .page {
-      margin-left: 150px;
-    }
-  }
 
   </style>
 </head>

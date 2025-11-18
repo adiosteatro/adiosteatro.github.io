@@ -224,6 +224,68 @@ footer {
     <footer>
       © <span id="year"></span> Un verano de despedida
     </footer>
+  .glass-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  padding: 28px 18px;
+  
+  /* 玻璃效果 */
+  background: rgba(255, 255, 255, 0.28);         /* 半透明 */
+  backdrop-filter: blur(16px) saturate(180%);    /* 霧面玻璃 */
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 1000; /* 確保在最上層 */
+}
+
+/* 側欄連結樣式 */
+.glass-sidebar a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2E3A5C;      /* 深海藍 */
+  padding: 6px 4px;
+  border-radius: 8px;
+  transition: 0.25s ease;
+}
+
+/* hover 變成金色光 */
+.glass-sidebar a:hover {
+  background-color: rgba(243, 204, 122, 0.45); /* 香草焦糖金 */
+  color: #2E3A5C;
+  backdrop-filter: blur(24px);
+}
+
+/* 主內容右移避免被側欄擋住 */
+.page {
+  margin-left: 210px;
+}
+
+/* =========================================
+   手機模式（側欄縮小）
+   ========================================= */
+@media (max-width: 650px) {
+
+  .glass-sidebar {
+    width: 130px;
+    padding: 20px 14px;
+  }
+
+  .glass-sidebar a {
+    font-size: 14px;
+  }
+
+  .page {
+    margin-left: 150px;
+  }
+}
   </main>
 
   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6Hzle86uYcpy3QkcCmMKgE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
